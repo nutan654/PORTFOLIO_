@@ -271,7 +271,7 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#achievements">Achievements</a>
-        <a href="#coding">Coding</a>
+        <a href="#coding">Elsewhere</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -471,7 +471,7 @@
                 <div class="proj-tag">Full-Stack · Interactive</div>
               </div>
               <ul class="pbul">
-                <li>Built a full-stack platform for the <strong>NEBULA Astronomy &amp; Physics Society</strong> with <strong>JWT cookie-based auth</strong> and 3-tier role-based access (Novice → Scholar → High Priest) driven by an automated exam-progression workflow.</li>
+                <li>Built a full-stack platform for the <strong>APS — Astronomy &amp; Physics Society</strong> with <strong>JWT cookie-based auth</strong> and 3-tier role-based access (Novice → Scholar → High Priest) driven by an automated exam-progression workflow.</li>
                 <li>Designed a <strong>custom in-memory relational data engine</strong> powering a CRUD observation ledger, an astrophotography archive, and an observatory equipment-reservation system.</li>
                 <li>Built an interactive eyepiece/optics simulator with real magnification &amp; focal-length math, a "seeing"-quality forecaster, a "Galileo" AI astronomy assistant, and an animated canvas starfield.</li>
               </ul>
@@ -506,122 +506,6 @@
           </div>
 
 
-          <div class="proj reveal">
-            <div class="proj-num">06</div>
-            <div>
-              <div class="proj-head">
-                <div class="proj-title">Word-Level ISL Recognition</div>
-                <div class="proj-tag">Computer Vision · ML</div>
-              </div>
-              <ul class="pbul">
-                <li>Built a <strong>video-based Indian Sign Language recognizer</strong> using <strong>MediaPipe pose estimation</strong> to extract body and hand keypoints across 45-frame clips.</li>
-                <li>Trained an <strong>LSTM</strong> model on keypoint sequences (INCLUDE-50 dataset + self-recorded videos), reaching <strong>~95% real-time accuracy</strong> on unseen test data — versus 5% for an earlier CRNN baseline.</li>
-                <li>Shipped as a lightweight web app with live-camera and video-upload inference, and a <strong>2.3MB</strong> model footprint (vs. 323MB for the CRNN version).</li>
-              </ul>
-              <div class="stack">
-                <span>MediaPipe</span><span>LSTM</span><span>Python</span><span>Flask</span>
-              </div>
-              <div class="proj-links">
-                <a href="https://github.com/nutan654" target="_blank" rel="noopener">GitHub</a>
-                <span class="expand-btn" data-target="d6">Case study +</span>
-              </div>
-              <div class="proj-details" id="d6">
-                <h4>Problem</h4>
-                <p>India has an estimated one certified sign-language interpreter for every 20,000 deaf individuals, making everyday communication with non-signers difficult. Prior attempts at automated recognition either needed heavy, full-frame video models or failed to generalize past the exact training clips.</p>
-                <h4>Solution</h4>
-                <p>A system that takes a 2-3 second video, extracts pose/hand keypoints with MediaPipe, and classifies the signed word with an LSTM trained on sequential keypoint data — no full-frame video processing required. Working from keypoints instead of raw pixels made the model dramatically smaller and faster while actually improving accuracy on unseen signers.</p>
-                <h4>Engineering</h4>
-                <ul>
-                  <li>MediaPipe PoseNet extracts body + hand keypoints per frame; videos are normalized to a fixed 45-frame input window</li>
-                  <li>LSTM architecture trained on keypoint sequences, replacing an earlier Time-Distributed CRNN model that underfit and performed poorly in real time</li>
-                  <li>Training data combined the INCLUDE-50 dataset with self-recorded videos to address class imbalance</li>
-                  <li>Flask web app plus standalone scripts for live-camera and file-based inference</li>
-                </ul>
-                <h4>Results</h4>
-                <p>The LSTM model reached 78% train / 74.6% validation / ~95% real-time test accuracy, and cut model size from 323MB to 2.3MB versus the earlier CRNN approach.</p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="proj reveal">
-            <div class="proj-num">07</div>
-            <div>
-              <div class="proj-head">
-                <div class="proj-title">VisionFlow</div>
-                <div class="proj-tag">Full-Stack · Microservices</div>
-              </div>
-              <ul class="pbul">
-                <li>Built an <strong>optical CRM + e-commerce prototype</strong> merging a patient medical-record system with an eyewear storefront, on a decoupled <strong>PHP/Apache + Python/FastAPI</strong> microservice architecture.</li>
-                <li>Modeled a relational, transaction-safe SQL schema linking patient demographics to lens prescriptions, with a full CRUD inventory API.</li>
-                <li>Built a real-time <strong>Chart.js</strong> analytics dashboard and a custom vanilla-JS <strong>English/Japanese i18n engine</strong>; fully Dockerized for parity across environments.</li>
-              </ul>
-              <div class="stack">
-                <span>PHP</span><span>FastAPI</span><span>SQL</span><span>Chart.js</span><span>Docker</span>
-              </div>
-              <div class="proj-links">
-                <a href="https://github.com/nutan654" target="_blank" rel="noopener">GitHub</a>
-                <span class="expand-btn" data-target="d7">Case study +</span>
-              </div>
-              <div class="proj-details" id="d7">
-                <h4>Problem</h4>
-                <p>Optical practices typically run patient records and their retail storefront as two disconnected systems, so a prescription update never automatically informs what's recommended in the store, and staff end up re-entering the same patient data twice.</p>
-                <h4>Solution</h4>
-                <p>A containerized prototype separating a PHP/Apache CRM backend from a Python/FastAPI predictive service, unifying patient prescription records with a live eyewear storefront under one system, so clinical data and retail data share a single source of truth.</p>
-                <h4>Engineering</h4>
-                <ul>
-                  <li>Decoupled microservices: PHP/Apache backend for CRM and storefront, Python/FastAPI service for predictive features</li>
-                  <li>Relational medical database with transaction-based SQL operations linking patients to optical prescriptions</li>
-                  <li>Full CRUD inventory API with a single-page admin dashboard for stock management</li>
-                  <li>Real-time Chart.js dashboard fed by the Python REST API</li>
-                  <li>Custom vanilla-JS localStorage-backed i18n engine for instant English ↔ Japanese UI translation</li>
-                  <li>Fully Dockerized (web, database, AI service) for consistent environments</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="proj reveal">
-            <div class="proj-num">08</div>
-            <div>
-              <div class="proj-head">
-                <div class="proj-title">Welfare Ops API</div>
-                <div class="proj-tag">Backend Engineering · REST API</div>
-              </div>
-              <ul class="pbul">
-                <li>Built a <strong>multi-tenant welfare operations backend</strong> for managing organizations, volunteers, welfare cases, and field assignments with strict organization-level data isolation.</li>
-                <li>Implemented <strong>JWT authentication, refresh-token rotation, role-based access control</strong>, input validation, rate limiting, and audit logging for secure API operations.</li>
-                <li>Added <strong>PostGIS-based geospatial dispatch</strong> to find nearby available volunteers, plus <strong>Redis caching</strong> for frequently accessed volunteer and dashboard data.</li>
-              </ul>
-              <div class="stack">
-                <span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>PostGIS</span><span>Redis</span><span>Docker</span>
-              </div>
-              <div class="proj-links">
-                <a href="https://github.com/nutan654/welfare-api" target="_blank" rel="noopener">GitHub</a>
-                <span class="expand-btn" data-target="d8">Case study +</span>
-              </div>
-              <div class="proj-details" id="d8">
-                <h4>Problem</h4>
-                <p>Welfare organizations need to coordinate cases, volunteers, and field operations while maintaining secure access to organization-specific data. A simple CRUD backend isn't sufficient when multiple organizations, different user roles, sensitive data, and location-based volunteer dispatch are all involved at once.</p>
-                <h4>Solution</h4>
-                <p>Welfare Ops API provides a centralized REST backend for welfare operations — organization management, volunteer management, case tracking, volunteer assignment, authentication, role-based permissions, and location-based volunteer discovery. Tenant-aware authorization keeps resources isolated between organizations while giving superadmins, admins, dispatchers, and volunteers different levels of access to the same system.</p>
-                <h4>Engineering</h4>
-                <ul>
-                  <li>Layered Express.js REST API using routes, controllers, middleware, services, and utility modules</li>
-                  <li>JWT access tokens with refresh-token rotation and bcrypt password hashing</li>
-                  <li>RBAC with four roles: <code>superadmin</code>, <code>admin</code>, <code>dispatcher</code>, and <code>volunteer</code></li>
-                  <li>Tenant isolation via <code>organization_id</code> scoping enforced in authorization middleware, not just application logic</li>
-                  <li>PostgreSQL + PostGIS <code>ST_DWithin</code> geographic queries and indexes for nearby-volunteer search</li>
-                  <li>Redis caching for volunteer lists and organization dashboard stats, with cache invalidation on writes</li>
-                  <li>Audit logging for successful write operations — user, IP, action, and resource</li>
-                  <li>Request validation, security headers, CORS, rate limiting, centralized error handling, and Swagger API docs</li>
-                  <li>Jest + Supertest coverage for backend testing</li>
-                </ul>
-                <h4>Deployment</h4>
-                <p>Fully Dockerized via Docker Compose, running three services — the Node.js API, PostgreSQL 16 with PostGIS 3.4, and Redis 7. The API is exposed locally on port <code>3001</code>, with interactive Swagger docs at <code>/api/docs</code>. The repository includes a Dockerfile, Compose configuration, database migrations, seed scripts, environment configuration, and production-oriented security settings. There's no public live demo yet — it's designed to run locally through Docker.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -735,8 +619,7 @@
         <h2 class="reveal" style="font-size:2rem;margin-bottom:32px;">Where the work got noticed.</h2>
         <div class="ach-list reveal">
           <div class="ach"><div class="yr">2026</div><div class="name">Semi-Finalist — Flipkart GRiD 6.0</div><div class="place">National</div></div>
-          <div class="ach"><div class="yr">2026</div><div class="name">Semi-Finalist — Meesho Scripted By Her Hackathon</div><div class="place">National</div></div>
-          <div class="ach"><div class="yr">2026</div><div class="name">Top 100 teams nationwide — Myntra WeForShe HackerRamp</div><div class="place">National</div></div>
+          <div class="ach"><div class="yr">2026</div><div class="name">Meesho Scripted By Her Hackathon — Cleared 3 of 5 rounds, reached project submission round</div><div class="place">National</div></div>
           <div class="ach"><div class="yr">2025</div><div class="name">Semi-Finalist — Flipkart GRiD 5.0</div><div class="place">National</div></div>
           <div class="ach"><div class="yr">—</div><div class="name">NPTEL Elite — Business Development (91%, Top 2%) &amp; Cloud Computing (84%)</div><div class="place">Certification</div></div>
           <div class="ach"><div class="yr">—</div><div class="name">500+ DSA problems solved across LeetCode, CodeChef &amp; Codeforces</div><div class="place">Competitive Programming</div></div>
@@ -749,9 +632,9 @@
     <!-- CODING -->
     <section id="coding">
       <div class="wrap">
-        <div class="eyebrow reveal">Coding</div>
-        <h2 class="reveal" style="font-size:2rem;margin-bottom:8px;">Problem solving.</h2>
-        <p class="reveal" style="color:var(--fg-dim);">Active on the usual platforms — DSA and competitive programming alongside the project work.</p>
+        <div class="eyebrow reveal">Elsewhere</div>
+        <h2 class="reveal" style="font-size:2rem;margin-bottom:8px;">Where you can see it for yourself.</h2>
+        <p class="reveal" style="color:var(--fg-dim);">The code, the contest history, and everything else — one click away.</p>
         <div class="coding-grid reveal">
           <a href="https://github.com/nutan654" target="_blank" rel="noopener"><div class="plat">GitHub</div><div class="handle">nutan654</div></a>
           <a href="https://leetcode.com/u/nutan654/" target="_blank" rel="noopener"><div class="plat">LeetCode</div><div class="handle">nutan654</div></a>
@@ -774,7 +657,7 @@
         </div>
         <div class="clubs reveal">
           <div>Programming Club</div>
-          <div>NEBULA Astronomy &amp; Physics Society</div>
+          <div>APS — Astronomy &amp; Physics Society</div>
           <div>Physics Club</div>
         </div>
         <div class="lang-row reveal">
