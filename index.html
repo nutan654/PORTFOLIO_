@@ -271,7 +271,6 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#achievements">Achievements</a>
-        <a href="#coding">Elsewhere</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -471,7 +470,7 @@
                 <div class="proj-tag">Full-Stack · Interactive</div>
               </div>
               <ul class="pbul">
-                <li>Built a full-stack platform for the <strong>APS — Astronomy &amp; Physics Society</strong> with <strong>JWT cookie-based auth</strong> and 3-tier role-based access (Novice → Scholar → High Priest) driven by an automated exam-progression workflow.</li>
+                <li>Built a full-stack platform for the <strong>NEBULA Astronomy &amp; Physics Society</strong> with <strong>JWT cookie-based auth</strong> and 3-tier role-based access (Novice → Scholar → High Priest) driven by an automated exam-progression workflow.</li>
                 <li>Designed a <strong>custom in-memory relational data engine</strong> powering a CRUD observation ledger, an astrophotography archive, and an observatory equipment-reservation system.</li>
                 <li>Built an interactive eyepiece/optics simulator with real magnification &amp; focal-length math, a "seeing"-quality forecaster, a "Galileo" AI astronomy assistant, and an animated canvas starfield.</li>
               </ul>
@@ -506,9 +505,49 @@
           </div>
 
 
-        </div>
-      </div>
-    </section>
+          <div class="proj reveal">
+            <div class="proj-num">06</div>
+            <div>
+              <div class="proj-head">
+                <div class="proj-title">VisionFlow</div>
+                <div class="proj-tag">Full-Stack · FinOps</div>
+              </div>
+              <ul class="pbul">
+                <li>Built an <strong>optical CRM + e-commerce prototype</strong> merging patient medical records with an eyewear storefront, on a decoupled <strong>PHP/Apache + Python/FastAPI</strong> microservice architecture — then extended it with a full finance &amp; operations layer.</li>
+                <li>Added <strong>AR/AP ledgers</strong> (invoicing, partial/full payments, automated 0–30/31–60/61+ day aging, vendor purchase orders) and a <strong>bank-reconciliation engine</strong> that matches uploaded CSV statements against recorded payments using exact (±1 day) and fuzzy (±5 day) matching in pandas.</li>
+                <li>Built an <strong>immutable audit trail</strong> logging every create/update/delete on inventory and pricing with before/after state, plus a financial reporting dashboard — revenue, AR vs AP, inventory valuation, gross margin — with CSV export per chart.</li>
+              </ul>
+              <div class="stack">
+                <span>PHP</span><span>FastAPI</span><span>MySQL</span><span>pandas</span><span>Chart.js</span><span>Docker</span>
+              </div>
+              <div class="proj-links">
+                <a href="https://github.com/nutan654/visonflow" target="_blank" rel="noopener">GitHub</a>
+                <span class="expand-btn" data-target="d9">Case study +</span>
+              </div>
+              <div class="proj-details" id="d9">
+                <h4>Problem</h4>
+                <p>Optical practices typically run patient records and their retail storefront as two disconnected systems, so a prescription update never automatically informs what's recommended in the store, and staff end up re-entering the same patient data twice. On top of that, invoicing, vendor payments, and bank reconciliation are usually handled manually in spreadsheets, with no audit trail when records change.</p>
+                <h4>Solution</h4>
+                <p>A containerized system separating a PHP/Apache CRM backend from a Python/FastAPI predictive service, unifying patient prescription records with a live eyewear storefront — and layering on a finance &amp; operations module so invoicing, vendor payables, and bank statements share the same source of truth as inventory and pricing.</p>
+                <h4>Engineering</h4>
+                <ul>
+                  <li>Decoupled microservices: PHP/Apache backend for CRM, storefront, and finance APIs; Python/FastAPI service for predictive features and reconciliation</li>
+                  <li>MySQL schema split across a base migration (products, inventory, customers, prescriptions) and a finance migration (audit_log, bank_transactions, invoices, payments, vendors, purchase_orders)</li>
+                  <li>Reconciliation service (pandas + FastAPI router) parses an uploaded CSV, then classifies each row as an exact match, a fuzzy match flagged for review, or unmatched with a human-readable reason</li>
+                  <li>AR flow: create invoice → record payment → aging buckets recompute automatically; AP flow: add vendor → raise PO → move through ordered → received → paid</li>
+                  <li>Audit logging wraps every inventory/pricing write with a shared <code>log_change()</code> helper capturing user, action, and before/after state</li>
+                  <li>Financial dashboard aggregates revenue, AR vs AP, inventory valuation, and gross margin from the underlying ledgers, with per-chart CSV export</li>
+                  <li>Custom vanilla-JS localStorage-backed i18n engine for English ↔ Japanese UI translation</li>
+                  <li>Fully Dockerized (web, AI/reconciliation service, MySQL) for consistent environments</li>
+                </ul>
+                <h4>Deployment</h4>
+                <p>Runs via Docker Compose across three services — web (PHP/Apache) on port 80, the FastAPI service on port 8000, and MySQL on port 3306. No public live demo; designed to run locally through Docker.</p>
+              </div>
+            </div>
+          </div>
+
+
+
 
     <!-- ABOUT -->
     <section id="about">
@@ -622,24 +661,8 @@
           <div class="ach"><div class="yr">2026</div><div class="name">Meesho Scripted By Her Hackathon — Cleared 3 of 5 rounds, reached project submission round</div><div class="place">National</div></div>
           <div class="ach"><div class="yr">2025</div><div class="name">Semi-Finalist — Flipkart GRiD 5.0</div><div class="place">National</div></div>
           <div class="ach"><div class="yr">—</div><div class="name">NPTEL Elite — Business Development (91%, Top 2%) &amp; Cloud Computing (84%)</div><div class="place">Certification</div></div>
-          <div class="ach"><div class="yr">—</div><div class="name">500+ DSA problems solved across LeetCode, CodeChef &amp; Codeforces</div><div class="place">Competitive Programming</div></div>
           <div class="ach"><div class="yr">—</div><div class="name">1st Prize, Astronomy Quiz — Technex, IIT (BHU)</div><div class="place">Institute</div></div>
           <div class="ach"><div class="yr">—</div><div class="name">District-Level Chess Player &amp; Science Gold Medalist (Class X Boards)</div><div class="place">Academic</div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CODING -->
-    <section id="coding">
-      <div class="wrap">
-        <div class="eyebrow reveal">Elsewhere</div>
-        <h2 class="reveal" style="font-size:2rem;margin-bottom:8px;">Where you can see it for yourself.</h2>
-        <p class="reveal" style="color:var(--fg-dim);">The code, the contest history, and everything else — one click away.</p>
-        <div class="coding-grid reveal">
-          <a href="https://github.com/nutan654" target="_blank" rel="noopener"><div class="plat">GitHub</div><div class="handle">nutan654</div></a>
-          <a href="https://leetcode.com/u/nutan654/" target="_blank" rel="noopener"><div class="plat">LeetCode</div><div class="handle">nutan654</div></a>
-          <a href="https://codeforces.com/profile/nutan654" target="_blank" rel="noopener"><div class="plat">Codeforces</div><div class="handle">nutan654 · Pupil</div></a>
-          <a href="https://www.linkedin.com/in/nutan-bisandre-0ab515290/" target="_blank" rel="noopener"><div class="plat">LinkedIn</div><div class="handle">Nutan Bisandre</div></a>
         </div>
       </div>
     </section>
@@ -657,7 +680,7 @@
         </div>
         <div class="clubs reveal">
           <div>Programming Club</div>
-          <div>APS — Astronomy &amp; Physics Society</div>
+          <div>NEBULA Astronomy &amp; Physics Society</div>
           <div>Physics Club</div>
         </div>
         <div class="lang-row reveal">
